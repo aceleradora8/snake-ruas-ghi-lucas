@@ -1,5 +1,4 @@
 require 'io/console'
-
 ###############################
 =begin
 Funcionalidades faltantes:
@@ -119,35 +118,32 @@ def parede()
   end
 end
 ###############################
-#INICIANDO METODOS
-
-
+#Threads
+#Thread de ler o teclado e atualizadar letra global
 @T1 = Thread.new do
-	@letra = $stdin.getch.chomp 
    while(@V)
       @letra = $stdin.getch.chomp
     exit if @letra == 'q'
   end
 end
-
+#Thread de imprimir a matriz
 @T2 = Thread.new do
   while(@V)
     imprimir(@matriz,@comida)
-    #sleep(1)
   end
 end#fim thread
-
-
+###############################
+#INICIANDO METODOS
 while(@V)
 sair(@letra)
 gera_comida(@matriz)
 parede()
-  while((@letra == "d"|| @letra == "a"|| @letra == "s"|| @letra == "w")&&(@V))
+  while(@V)
     mover(@matriz,@letra,@lin,@con)
-    sleep(1)
     sair(@letra)
     gera_comida(@matriz)
-    parede()#<<
+    parede()
+    sleep(1)
   end
 end#fim while
 ##############################

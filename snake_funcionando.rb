@@ -1,10 +1,4 @@
 require 'io/console'
-require 'io/wait'
-
-require 'curses'
-include Curses
-
-
 ###############################
 =begin
 Funcionalidades faltantes:
@@ -113,14 +107,12 @@ def gera_comida(mat)
      @x=rand(14)#linha
      @y=rand(6)#coluna
      @x=@x.to_i
-     @x=@y.to_i
+     @y=@y.to_i
    end
    mat[@x][@y] = "o"
    @comida+=1
   end
 end
-
-
 ###############################
 #PERDER NA PAREDE
 def parede()
@@ -135,18 +127,9 @@ while(@V)
     imprimir(matriz,@comida)
     letra = STDIN.getch.chomp
     mover(matriz,letra,@lin,@con)
-    #sleep(1)
-    
-    
     sair(letra)
     gera_comida(matriz)
     parede()
-   next
-	
-
-
-	    
-
 end#fim while
 ##############################
 
