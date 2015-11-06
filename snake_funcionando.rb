@@ -87,9 +87,6 @@ end
 #SAIDA
 def sair (letra)
   @flag = false if letra.downcase.eql? 'q'
-  # if letra == "q" || letra == "Q"
-  #   @flag = false
-  # end
 end
 ###############################
 #GERAR COMIDA
